@@ -1,15 +1,13 @@
 import fs from 'fs';
 import path from 'path';
+import { app, port, cookieParser, chalk, express } from './appConfig.js';
 
-// Path to the users.json file
 const usersFilePath = 'users.json';
 
-// Function to read and parse users.json into a JS object
 function getUsers() {
     try {
         const data = fs.readFileSync(usersFilePath, 'utf-8');
-        const users = JSON.parse(data);
-        return users;
+        return JSON.parse(data);
     } catch (error) {
         console.error('Error reading or parsing users.json:', error);
         return null;
@@ -19,10 +17,24 @@ function getUsers() {
 function checkUserExists(username) {
     const users = getUsers();
     if (!users) return false;
-    return Object.keys(users).includes(username);
+
+    const target = username.trim().toLowerCase();
+    return Object.values(users).some(user => user.name.toLowerCase() === target);
 }
 
-// Example usage
+function setupUserRoutes(app) {
+    app.get('/user', (req, res) => {
+        const username = req.query.name;
+        if (!username) {
+            return res.status(400).send('Name query parameter is required');
+        }
+        if (checkUserExists(username)) {
+            res.status(200).send(`User ${username} exists` );
+        } else {
+            res.status(404).send(`User ${username} not found`);
+        }
+    });
+}
+
 const users = getUsers();
-export default { users, checkUserExists };
-export { users, checkUserExists };
+export { setupUserRoutes, users, checkUserExists };

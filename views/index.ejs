@@ -25,14 +25,42 @@
                 <th>Last Login (UTC)</th>
             </tr>
             <% for (let i = 0; i < user.length; i++) { %>
-                <tr>
+                <tr class="clickable-row" data-href="/user?name=<%= user[i].username %>">
                     <td><%= user[i].username %></td>
                     <td><%= user[i].score %></td>
                     <td><%= user[i].level %></td>
                     <td><%= user[i].lastLogin.toUTCString() %></td>
-                </tr>
+                </tr>                
             <% } %>
         </tbody>
     </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.clickable-row').forEach(row => {
+                row.addEventListener('click', (e) => {
+                    // Ripple effect
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ripple');
+    
+                    const rect = row.getBoundingClientRect();
+                    ripple.style.left = `${e.clientX - rect.left}px`;
+                    ripple.style.top = `${e.clientY - rect.top}px`;
+    
+                    row.appendChild(ripple);
+    
+                    // Remove ripple after animation
+                    ripple.addEventListener('animationend', () => {
+                        ripple.remove();
+                    });
+    
+                    // Navigate
+                    setTimeout(() => {
+                        window.location.href = row.dataset.href;
+                    }, 150); // slight delay to show ripple
+                });
+            });
+        });
+    </script>       
 </body>
 </html>

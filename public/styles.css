@@ -1,65 +1,112 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f0f4f8;
     text-align: center;
-    color: #333;
+    color: #2c3e50;
 }
 
 h1, h2 {
-    text-align: center;
+    color: #34495e;
 }
 
 table {
     width: 80%;
     margin: 20px auto;
     border-collapse: collapse;
-    background-color: #fff;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 table th, table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border: 1px solid #dee2e6;
+    padding: 12px;
     text-align: center;
 }
 
 table th {
-    background-color: #4CAF50;
+    background-color: #5c6bc0; /* Indigo shade */
     color: white;
 }
 
 table tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f9fbfd;
 }
 
 table tr:hover {
-    background-color: #ddd;
+    background-color: #e3eaf3;
 }
 
 button {
     display: block;
     margin: 20px auto;
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 16px;
-    background-color: #4CAF50;
+    background-color: #42a5f5;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #1e88e5;
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-th {
-    background-color: #f2f2f2;
-    padding: 8px;
-    text-align: center;
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-td {
-    padding: 8px;
-    text-align: center;
+a {
+    text-decoration: none;
+    color: #5c6bc0;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+table tr {
+    transition: background-color 0.5s ease;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9fbfd;
+}
+
+table tr:hover {
+    background-color: #e3eaf3;
+}
+
+.clickable-row {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.clickable-row:hover {
+    background-color: #e3eaf3;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    background-color: rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }

@@ -12,5 +12,33 @@
         "level": 2,
         "last_login": "2023-10-02T12:00:00Z",
         "password": "password123"
+    },
+    "3": {
+        "name": "Alice Johnson",
+        "points": 150,
+        "level": 1,
+        "last_login": "2023-10-03T12:00:00Z",
+        "password": "alicepass"
+    },
+    "4": {
+        "name": "Bob Brown",
+        "points": 300,
+        "level": 3,
+        "last_login": "2023-10-04T12:00:00Z",
+        "password": "bobpass"
+    },
+    "5": {
+        "name": "Charlie Davis",
+        "points": 250,
+        "level": 2,
+        "last_login": "2023-10-05T12:00:00Z",
+        "password": "charliepass"
+    },
+    "6": {
+        "name": "Diana Prince",
+        "points": 400,
+        "level": 4,
+        "last_login": "2023-10-06T12:00:00Z",
+        "password": "diana123"
     }
 }
