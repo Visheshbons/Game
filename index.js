@@ -30,6 +30,14 @@ app.get('/', (req, res) => {
   res.render('index.ejs', { title: 'Home', user: usersArray });
 });
 
+app.get('/login', (req, res) => {
+  res.render('login.ejs', { title: 'Login', user: usersArray });
+});
+
+app.get('/newUser', (req, res) => {
+  res.render('newUser.ejs', { title: 'New User', user: usersArray });
+});
+
 // 404 handler
 app.use((req, res, next) => {
   res.status(404).send('<pre>Nice try.</pre>');
