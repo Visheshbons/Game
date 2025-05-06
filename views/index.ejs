@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <p>Click the button below to start the game.</p>
+    <a href="/Game">
+        <button>Start Game</button>
+    </a>
+
+    <hr>
+
+    <h2>Stats:</h2>
+    <table>
+        <tbody>
+            <tr>
+                <th>Player</th>
+                <th>Score</th>
+                <th>Level</th>
+                <th>Last Login (UTC)</th>
+            </tr>
+            <% for (let i = 0; i < user.length; i++) { %>
+                <tr>
+                    <td><%= user[i].username %></td>
+                    <td><%= user[i].score %></td>
+                    <td><%= user[i].level %></td>
+                    <td><%= user[i].lastLogin.toUTCString() %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

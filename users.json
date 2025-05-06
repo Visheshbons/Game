@@ -1,0 +1,16 @@
+{
+    "1": {
+        "name": "John Doe",
+        "points": 100,
+        "level": 1,
+        "last_login": "2023-10-01T12:00:00Z",
+        "password": "password"
+    },
+    "2": {
+        "name": "Jane Smith",
+        "points": 200,
+        "level": 2,
+        "last_login": "2023-10-02T12:00:00Z",
+        "password": "password123"
+    }
+}
